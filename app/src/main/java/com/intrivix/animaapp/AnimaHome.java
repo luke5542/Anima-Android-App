@@ -16,6 +16,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 
@@ -113,6 +116,8 @@ public class AnimaHome extends Activity
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
+        private Spinner mSkillType;
+
         /**
          * Returns a new instance of this fragment for the given section
          * number.
@@ -132,6 +137,11 @@ public class AnimaHome extends Activity
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_anima_home, container, false);
+
+            mSkillType = (Spinner) rootView.findViewById(R.id.spinner);
+            mSkillType.setAdapter(ArrayAdapter.createFromResource(this.getActivity(), R.array.skills,
+                                                                  android.R.layout.simple_list_item_1));
+
             return rootView;
         }
 
