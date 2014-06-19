@@ -109,6 +109,8 @@ public class AnimaHome extends Activity
         return super.onOptionsItemSelected(item);
     }
 
+
+
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -138,6 +140,12 @@ public class AnimaHome extends Activity
         public PlaceholderFragment() {
         }
 
+        public void copyToClipboard(String textToCopy, Context c) {
+            ClipboardManager clipboard = (ClipboardManager) c.getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText("Anima Stuff", textToCopy);
+            clipboard.setPrimaryClip(clip);
+        }
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
@@ -155,12 +163,18 @@ public class AnimaHome extends Activity
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //TODO add some button action...
+                    int mFinalRollNum = Integer.parseInt(mRollValue.getText().toString()) +
+                            Integer.parseInt(mSkillValue.getText().toString());
+                    String mFinalRoll = "[u]" + mSkillType.getSelectedItem().toString() + "[/u]\nRoll: "
+                            + mRollValue.getText().toString() + "\nSkill value: [color=#" + mColorValue.getText().toString()
+                            + "]" + mSkillValue.getText().toString() + "[/color]\nFinal roll: [b]" + Integer.toString(mFinalRollNum)
+                            + "[/b]";
+                    copyToClipboard(mFinalRoll, getActivity());
+                    //Use this when you want to show a small message to the user. idk why it's called Toast.
+                    Toast.makeText(getActivity(), "Copied to clipboard:\n" + mFinalRoll, Toast.LENGTH_SHORT).show();
+
                 }
             });
-
-            //Use this when you want to show a small message to the user. idk why it's called Toast.
-            Toast.makeText(getActivity(), "Copied to clipboard.", Toast.LENGTH_SHORT).show();
 
             return rootView;
         }
@@ -173,10 +187,6 @@ public class AnimaHome extends Activity
         }
     }
 
-    public void copyToClipboard(String textToCopy) {
-        ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-        ClipData clip = ClipData.newPlainText("Anima Stuff", textToCopy);
-        clipboard.setPrimaryClip(clip);
-    }
+
 
 }
