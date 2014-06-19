@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/et_skill_value"
         android:layout_below="@+id/spinner"
         android:layout_alignRight="@+id/spinner"
         android:layout_alignEnd="@+id/spinner" />
@@ -35,48 +35,48 @@
         android:layout_height="wrap_content"
         android:text="@string/skill_value"
         android:textSize="22sp"
-        android:id="@+id/textView"
-        android:layout_alignBottom="@+id/editText"
-        android:layout_toLeftOf="@+id/editText" />
+        android:id="@+id/tv_skill_value"
+        android:layout_alignBottom="@+id/et_skill_value"
+        android:layout_toLeftOf="@+id/et_skill_value" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_below="@+id/editText"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
+        android:id="@+id/et_roll_value"
+        android:layout_below="@+id/et_skill_value"
+        android:layout_alignRight="@+id/et_skill_value"
+        android:layout_alignEnd="@+id/et_skill_value" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/roll_value"
         android:textSize="22sp"
-        android:id="@+id/textView2"
-        android:layout_alignBottom="@+id/editText2"
-        android:layout_toLeftOf="@+id/editText" />
+        android:id="@+id/tv_roll_value"
+        android:layout_alignBottom="@+id/et_roll_value"
+        android:layout_toLeftOf="@+id/et_skill_value" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText3"
-        android:layout_below="@+id/editText2"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_alignEnd="@+id/editText2"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2" />
+        android:id="@+id/et_color_value"
+        android:layout_below="@+id/et_roll_value"
+        android:layout_alignRight="@+id/et_roll_value"
+        android:layout_alignEnd="@+id/et_roll_value"
+        android:layout_alignLeft="@+id/et_roll_value"
+        android:layout_alignStart="@+id/et_roll_value" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/color_value"
         android:textSize="22sp"
-        android:id="@+id/textView3"
-        android:layout_alignBottom="@+id/editText3"
-        android:layout_alignRight="@+id/textView2"
-        android:layout_alignEnd="@+id/textView2" />
+        android:id="@+id/tv_color_value"
+        android:layout_alignBottom="@+id/et_color_value"
+        android:layout_alignRight="@+id/tv_roll_value"
+        android:layout_alignEnd="@+id/tv_roll_value" />
 
     <Button
         android:layout_width="wrap_content"
