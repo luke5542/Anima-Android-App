@@ -142,13 +142,22 @@ public class AnimaHome extends Activity
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_anima_home, container, false);
-            btn = (Button) rootView.findViewById(R.id.button) ;
             mSkillValue = (EditText) rootView.findViewById(R.id.et_skill_value);
             mRollValue = (EditText) rootView.findViewById(R.id.et_roll_value);
             mColorValue = (EditText) rootView.findViewById(R.id.et_color_value);
+
             mSkillType = (Spinner) rootView.findViewById(R.id.spinner);
             mSkillType.setAdapter(ArrayAdapter.createFromResource(this.getActivity(), R.array.skills,
                     android.R.layout.simple_list_item_1));
+
+
+            btn = (Button) rootView.findViewById(R.id.button);
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //TODO add some button action...
+                }
+            });
 
             //Use this when you want to show a small message to the user. idk why it's called Toast.
             Toast.makeText(getActivity(), "Copied to clipboard.", Toast.LENGTH_SHORT).show();
