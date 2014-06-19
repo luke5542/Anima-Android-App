@@ -9,5 +9,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
+    <string name="skill_value">Skill Value: </string>
+    <string name="roll_value">Roll Value: </string>
+    <string name="color_value">Color: </string>
+    <string name="button_generate">Generate</string>
 
 </resources>
