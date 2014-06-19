@@ -144,7 +144,7 @@ public class AnimaHome extends Activity
                     android.R.layout.simple_list_item_1));
 
             //Use this when you want to show a small message to the user. idk why it's called Toast.
-            Toast.makeText(this.getActivity(), "Copied to clipboard.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Copied to clipboard.", Toast.LENGTH_SHORT).show();
 
             return rootView;
         }
