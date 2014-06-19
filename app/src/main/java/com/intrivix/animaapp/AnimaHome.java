@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
@@ -140,7 +142,7 @@ public class AnimaHome extends Activity
 
             mSkillType = (Spinner) rootView.findViewById(R.id.spinner);
             mSkillType.setAdapter(ArrayAdapter.createFromResource(this.getActivity(), R.array.skills,
-                                                                  android.R.layout.simple_list_item_1));
+                    android.R.layout.simple_list_item_1));
 
             return rootView;
         }
@@ -151,6 +153,12 @@ public class AnimaHome extends Activity
             ((AnimaHome) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
+    }
+
+    public void copyToClipboard(String textToCopy) {
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("label", textToCopy);
+        clipboard.setPrimaryClip(clip);
     }
 
 }
