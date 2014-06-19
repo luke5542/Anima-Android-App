@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="skills">
+        <item>Acrobatics</item>
+        <item>Athleticism</item>
+        <item>Climb</item>
+        <item>Jump</item>
+        <item>Ride</item>
+        <item>Swim</item>
+        <item>Composure</item>
+        <item>Feats of Strength</item>
+        <item>Withstand Pain</item>
+        <item>Notice</item>
+        <item>Search</item>
+        <item>Track</item>
+        <item>Animals</item>
+        <item>Appraisal</item>
+        <item>Herbal Lore</item>
+        <item>History</item>
+        <item>Magic Appraisal</item>
+        <item>Medicine</item>
+        <item>Memorize</item>
+        <item>Navigation</item>
+        <item>Occult</item>
+        <item>Sciences</item>
+        <item>Intimidate</item>
+        <item>Leadership</item>
+        <item>Persuasion</item>
+        <item>Style</item>
+        <item>Disguise</item>
+        <item>Hide</item>
+        <item>Lock Picking</item>
+        <item>Poison</item>
+        <item>Theft</item>
+        <item>Stealth</item>
+        <item>Trap Lore</item>
+        <item>Art</item>
+        <item>Dance</item>
+        <item>Forging</item>
+        <item>Music</item>
+        <item>Sleight of Hand</item>
+    </string-array>
+
+</resources>
