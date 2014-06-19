@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class AnimaHome extends Activity
@@ -149,6 +150,9 @@ public class AnimaHome extends Activity
             mSkillType.setAdapter(ArrayAdapter.createFromResource(this.getActivity(), R.array.skills,
                     android.R.layout.simple_list_item_1));
 
+            //Use this when you want to show a small message to the user. idk why it's called Toast.
+            Toast.makeText(this.getActivity(), "Copied to clipboard.", Toast.LENGTH_SHORT).show();
+
             return rootView;
         }
 
@@ -162,7 +166,7 @@ public class AnimaHome extends Activity
 
     public void copyToClipboard(String textToCopy) {
         ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-        ClipData clip = ClipData.newPlainText("label", textToCopy);
+        ClipData clip = ClipData.newPlainText("Anima Stuff", textToCopy);
         clipboard.setPrimaryClip(clip);
     }
 
