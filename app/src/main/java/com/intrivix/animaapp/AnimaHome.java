@@ -25,10 +25,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class AnimaHome extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+
+    public static final String SHIVTR_URL_BASE = "http://animatravelers.shivtr.com/";
+    public static final String SHIVTR_FORUMS = SHIVTR_URL_BASE + "forums";
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -53,6 +58,69 @@ public class AnimaHome extends Activity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        new HttpRequestTask(new HttpRequestTask.Handler() {
+            @Override
+            public void onComplete(String result) {
+                /*
+                 * {
+                    "forum_sections": [
+                        {
+                            "id": 123063,
+                            "name": "Anima Games",
+                            "forums": [
+                                {
+                                    "id": 621512,
+                                    "name": "Somnia ex Gaia",
+                                    "description": "GM Void, In Progress"
+                                },
+                                {
+                                    "id": 1091513,
+                                    "name": "The Awesome Adventure of Legendary Heroes who (Might) Save the World and Stuff",
+                                    "description": "GMs Ephax and Shaman, awaiting character submissions"
+                                },
+                                {
+                                    "id": 963688,
+                                    "name": "Blood and Intrigue",
+                                    "description": "GM Void, Preparing"
+                                },
+                                {
+                                    "id": 1021398,
+                                    "name": "mkdir linked",
+                                    "description": "GM shaman, preparing"
+                                },
+                                {
+                                    "id": 960560,
+                                    "name": "Shadows and Strings",
+                                    "description": "GM Ephax, on hold until I can afford the setup time"
+                                }
+                            ]
+                        }
+                    ]
+                }
+                 */
+
+                try {
+                    JSONObject object = new JSONObject(result);
+                    JSONArray forumSections = object.getJSONArray("forum_sections");
+
+                    for(int i=0; i<forumSections.length(); i++) {
+                        JSONObject section = forumSections.getJSONObject(i);
+                        JSONArray forums = section.getJSONArray("forums");
+
+                        for(int j=0; j<forums.length(); j++) {
+                            JSONObject forum = forums.getJSONObject(j);
+                        }
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                //TODO set the drawer list with valid data...
+                mNavigationDrawerFragment.setDrawerList(null);
+            }
+        }, SHIVTR_FORUMS, null, HttpRequestTask.GET);
     }
 
     @Override
@@ -77,17 +145,7 @@ public class AnimaHome extends Activity
     }
 
     public void onSectionAttached(int number) {
-        switch (number) {
-            case 1:
-                mTitle = getString(R.string.title_section1);
-                break;
-            case 2:
-                mTitle = getString(R.string.title_section2);
-                break;
-            case 3:
-                mTitle = getString(R.string.title_section3);
-                break;
-        }
+        mTitle = mNavigationDrawerFragment.getDrawerList().get(number);
     }
 
     public void restoreActionBar() {
@@ -275,3 +333,27 @@ public class AnimaHome extends Activity
 
 
 }
+
+/*
+{
+    "forum_threads": [
+        {
+            "id": 1546160,
+            "subject": "Act IV: New Horizons",
+            "sticky": true,
+            "lock": false,
+            "views": 6838,
+            "forum_posts_count": 1173,
+            "created_on": "2013-09-02T11:57:03.000-07:00",
+            "forum": {
+                "id": 621512,
+                "name": "Somnia ex Gaia",
+                "description": "GM Void, In Progress"
+            }
+        },
+    ]
+}
+
+When you press the drawer item, you need to then load in the data for the specific thread list, that people can then select from.
+With that thread list showing, we can then move on to actually go into that thread and show posts...
+ */
