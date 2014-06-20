@@ -123,7 +123,7 @@ public class AnimaHome extends Activity
 
         private Spinner mSkillType;
         private Button btn;
-        private EditText mSkillValue, mRollValue, mColorValue;
+        private EditText mSkillValue, mRollValue, mColorValue, mMessage;
 
         /**
          * Returns a new instance of this fragment for the given section
@@ -153,6 +153,7 @@ public class AnimaHome extends Activity
             mSkillValue = (EditText) rootView.findViewById(R.id.et_skill_value);
             mRollValue = (EditText) rootView.findViewById(R.id.et_roll_value);
             mColorValue = (EditText) rootView.findViewById(R.id.et_color_value);
+            mMessage = (EditText) rootView.findViewById(R.id.et_extraneous);
 
             mSkillType = (Spinner) rootView.findViewById(R.id.spinner);
             mSkillType.setAdapter(ArrayAdapter.createFromResource(this.getActivity(), R.array.skills,
@@ -165,7 +166,7 @@ public class AnimaHome extends Activity
                 public void onClick(View v) {
                     int mFinalRollNum = Integer.parseInt(mRollValue.getText().toString()) +
                             Integer.parseInt(mSkillValue.getText().toString());
-                    String mFinalRoll = "[u]" + mSkillType.getSelectedItem().toString() + "[/u]\nRoll: "
+                    String mFinalRoll = mMessage.getText().toString()+ "\n[u]" + mSkillType.getSelectedItem().toString() + "[/u]\nRoll: "
                             + mRollValue.getText().toString() + "\nSkill value: [color=#" + mColorValue.getText().toString()
                             + "]" + mSkillValue.getText().toString() + "[/color]\nFinal roll: [b]" + Integer.toString(mFinalRollNum)
                             + "[/b]";

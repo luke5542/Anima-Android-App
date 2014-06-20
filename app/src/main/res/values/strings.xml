@@ -13,5 +13,7 @@
     <string name="roll_value">Roll Value: </string>
     <string name="color_value">Color: </string>
     <string name="button_generate">Generate</string>
+    <string name="extra_message">Message: </string>
+    <string name="msg_info">The message will be posted before the skill info.</string>
 
 </resources>

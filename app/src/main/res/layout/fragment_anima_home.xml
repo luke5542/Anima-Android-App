@@ -87,4 +87,33 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_extraneous"
+        android:layout_below="@+id/et_color_value"
+        android:layout_toRightOf="@+id/tv_color_value"
+        android:layout_alignRight="@+id/et_color_value"
+        android:layout_alignEnd="@+id/et_color_value" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/extra_message"
+        android:id="@+id/tv_msg"
+        android:textSize="22sp"
+        android:layout_alignBottom="@+id/et_extraneous"
+        android:layout_toLeftOf="@+id/button" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/msg_info"
+        android:id="@+id/tv_msg_info"
+        android:layout_below="@+id/et_extraneous"
+        android:layout_alignLeft="@+id/tv_skill_value"
+        android:layout_alignStart="@+id/tv_skill_value"
+        android:layout_marginTop="45dp" />
+
 </RelativeLayout>
