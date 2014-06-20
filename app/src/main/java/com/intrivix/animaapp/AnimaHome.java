@@ -24,6 +24,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 
 public class AnimaHome extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -244,6 +246,31 @@ public class AnimaHome extends Activity
             ((AnimaHome) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
+    }
+
+    public class ForumSection
+    {
+        public int id;
+        public ArrayList<Forum> forums;
+        public String name;
+    }
+
+    public class Forum
+    {
+        public int id;
+        public String name;
+        public String description;
+    }
+
+    public class ForumThread
+    {
+        public int id;
+        public String subject;
+        public boolean sticky;
+        public boolean lock;
+        public int views;
+        public int postCount;
+        public Forum parentForum;
     }
 
 
