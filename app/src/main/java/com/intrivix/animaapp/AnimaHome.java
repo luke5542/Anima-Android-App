@@ -308,3 +308,27 @@ public class AnimaHome extends Activity
 
 
 }
+
+/*
+{
+    "forum_threads": [
+        {
+            "id": 1546160,
+            "subject": "Act IV: New Horizons",
+            "sticky": true,
+            "lock": false,
+            "views": 6838,
+            "forum_posts_count": 1173,
+            "created_on": "2013-09-02T11:57:03.000-07:00",
+            "forum": {
+                "id": 621512,
+                "name": "Somnia ex Gaia",
+                "description": "GM Void, In Progress"
+            }
+        },
+    ]
+}
+
+When you press the drawer item, you need to then load in the data for the specific thread list, that people can then select from.
+With that thread list showing, we can then move on to actually go into that thread and show posts...
+ */
