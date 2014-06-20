@@ -57,9 +57,21 @@ public class AnimaHome extends Activity
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+
+        switch (position) {
+            case 0:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .commit();
+                break;
+            case 1:
+            default:
+                fragmentManager.beginTransaction()
+                    .replace(R.id.container, ForumFragment.newInstance(position + 1))
+                    .commit();
+                break;
+
+        }
     }
 
     public void onSectionAttached(int number) {
@@ -188,6 +200,51 @@ public class AnimaHome extends Activity
         }
     }
 
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class ForumFragment extends Fragment {
+        /**
+         * The fragment argument representing the section number for this
+         * fragment.
+         */
+        private static final String ARG_SECTION_NUMBER = "section_number";
+
+        private Spinner mSkillType;
+        private Button btn;
+        private EditText mSkillValue, mRollValue, mColorValue, mMessage;
+
+        /**
+         * Returns a new instance of this fragment for the given section
+         * number.
+         */
+        public static ForumFragment newInstance(int sectionNumber) {
+            ForumFragment fragment = new ForumFragment();
+            Bundle args = new Bundle();
+            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        public ForumFragment() {
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_anima_home, container, false);
+
+            return rootView;
+        }
+
+        @Override
+        public void onAttach(Activity activity) {
+            super.onAttach(activity);
+            ((AnimaHome) activity).onSectionAttached(
+                    getArguments().getInt(ARG_SECTION_NUMBER));
+        }
+    }
 
 
 }
